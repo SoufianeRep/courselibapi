@@ -25,7 +25,6 @@ module.exports = {
     dialect: "postgres",
     dialectOptions: {
       ssl: {
-        required: true,
         rejectUnauthorize: false
       }
     }
@@ -39,7 +38,6 @@ module.exports = {
     dialect: "postgres",
     dialectOptions: {
       ssl: {
-        required: true,
         rejectUnauthorize: false
       }
     }
