@@ -10,10 +10,8 @@ module.exports = {
     username: DB_USER,
     password: DB_PASSWORD,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false
-      }
+    ssl: {
+      rejectUnauthorized: false
     }
   },
   "test": {
@@ -23,10 +21,8 @@ module.exports = {
     username: DB_USER,
     password: DB_PASSWORD,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorize: false
-      }
+    ssl: {
+      rejectUnauthorized: false
     }
   },
   "production": {
@@ -36,10 +32,8 @@ module.exports = {
     username: DB_USER,
     password: DB_PASSWORD,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorize: false
-      }
+    ssl: {
+      rejectUnauthorized: false
     }
   },
 };
