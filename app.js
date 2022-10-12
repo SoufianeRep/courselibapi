@@ -3,8 +3,9 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const { sequelize } = require('./models/index');
 const api = require('./routes/api');
+
+const PORT = process.env.PORT || 5000;
 
 // variable to enable global error logging
 const enableGlobalErrorLogging =
@@ -55,18 +56,7 @@ app.use((err, req, res, next) => {
 app.set('port', process.env.PORT || 5000);
 
 // Test sequelize connection
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfuly');
-  } catch (err) {
-    console.log('Unable to connect to the database: ', err);
-  }
-})();
 
-// start listening on our port
-sequelize.sync({}).then(() => {
-  const server = app.listen(app.get('port'), () => {
-    console.log(`Express server is listening on port ${server.address().port}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Express server is listening on port ${PORT}`);
 });

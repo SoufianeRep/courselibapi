@@ -4,15 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./app.js",
-    "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'",
-    "db:drop": "sequelize-cli db:drop",
-    "db:create": "sequelize-cli db:create",
-    "db:migrate": "sequelize-cli db:migrate"
+    "start": "nodemon ./app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "devDependencies": {
     "@types/node": "^18.8.4",
     "nodemon": "^2.0.12",
@@ -32,10 +31,7 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
-    "pg-hstore": "^2.3.4",
-    "promise.prototype.finally": "^3.1.2",
-    "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0"
+    "promise.prototype.finally": "^3.1.2"
   },
   "prettier": {
     "singleQuote": true

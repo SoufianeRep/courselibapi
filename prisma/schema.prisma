@@ -16,11 +16,12 @@ model User {
   lastname     String
   emailAddress String   @unique
   password     String
-  Course       Course[]
+  courses      Course[]
 }
 
 model Course {
   id              Int     @id @default(autoincrement())
+  title           String
   description     String
   estimatedTime   String?
   materialsNeeded String?

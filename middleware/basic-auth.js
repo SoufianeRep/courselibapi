@@ -1,12 +1,14 @@
 const auth = require('basic-auth');
-const { User } = require('../models');
 const bcrypt = require('bcrypt');
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
 
 exports.authenticateUser = async (req, res, next) => {
   let message;
   const credentials = auth(req);
   if (credentials) {
-    const user = await User.findOne({
+    const user = await prisma.user.findUnique({
       where: { emailAddress: credentials.name },
     });
     if (user) {
@@ -17,6 +19,7 @@ exports.authenticateUser = async (req, res, next) => {
       );
       if (authenticated) {
         console.log('User Authentication successful');
+        delete user.password;
         req.loggedUser = user;
       } else {
         message = [`Can't Authenticate the user: ${user.username}`];
