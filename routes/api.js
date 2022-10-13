@@ -150,7 +150,7 @@ router.post(
     } catch (error) {
       const errors = [];
       if (error instanceof Prisma.PrismaClientValidationError) {
-        errors.push('Title and description are both required');
+        errors.push('Title and description are required');
         // const errors = error.errors.map((x) => x.message);
         res.status(400).json({ errors });
       } else {
